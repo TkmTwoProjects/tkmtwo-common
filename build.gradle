@@ -1,0 +1,35 @@
+
+subprojects {
+  
+  repositories {
+    mavenCentral()
+    jcenter()
+  }
+  group = 'com.tkmtwo'
+  version = '1.0.0'
+  
+  ext {
+    
+    //
+    // Dependency Versions
+    //
+    depVersionGuava = '18.0'
+    depVersionJunit = '4.11'
+    
+    //
+    // Javadoc Links
+    //
+    javadocLinks = [
+      "http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/",
+      "http://docs.oracle.com/javase/7/docs/api/"
+    ] as String[]
+    
+  }
+  
+}
+
+
+task wrapper(type: Wrapper) { 
+  gradleVersion = '2.1'
+}
+
