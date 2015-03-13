@@ -41,6 +41,66 @@ public class TkmTwoJointersTest {
     assertEquals("zero,one,two", TkmTwoJointers.COMMA_JOINER.join(l));
   }
   
+  
+  
+  
+  
+  @Test
+  public void testColon() {
+    String s = "zero:one:two";
+    
+    List<String> l = TkmTwoJointers.COLON_SPLITTER.splitToList(s);
+    assertEquals(3, l.size());
+    assertEquals("zero", l.get(0));
+    assertEquals("one", l.get(1));
+    assertEquals("two", l.get(2));
+    assertEquals(s, TkmTwoJointers.COLON_JOINER.join(l));
+  }
+  
+  @Test
+  public void testColonSpaces() {
+    String s = ": zero ::::one : : ::two: : :";
+    
+    List<String> l = TkmTwoJointers.COLON_SPLITTER.splitToList(s);
+    assertEquals(3, l.size());
+    assertEquals("zero", l.get(0));
+    assertEquals("one", l.get(1));
+    assertEquals("two", l.get(2));
+    assertEquals("zero:one:two", TkmTwoJointers.COLON_JOINER.join(l));
+  }
+  
+  
+  
+  
+  
+  @Test
+  public void testSemicolon() {
+    String s = "zero;one;two";
+    
+    List<String> l = TkmTwoJointers.SEMICOLON_SPLITTER.splitToList(s);
+    assertEquals(3, l.size());
+    assertEquals("zero", l.get(0));
+    assertEquals("one", l.get(1));
+    assertEquals("two", l.get(2));
+    assertEquals(s, TkmTwoJointers.SEMICOLON_JOINER.join(l));
+  }
+  
+  @Test
+  public void testSemicolonSpaces() {
+    String s = "; zero ;;;;one ; ; ;;two; ; ;";
+    
+    List<String> l = TkmTwoJointers.SEMICOLON_SPLITTER.splitToList(s);
+    assertEquals(3, l.size());
+    assertEquals("zero", l.get(0));
+    assertEquals("one", l.get(1));
+    assertEquals("two", l.get(2));
+    assertEquals("zero;one;two", TkmTwoJointers.SEMICOLON_JOINER.join(l));
+  }
+  
+  
+  
+  
+  
   @Test
   public void testMap() {
     String s = "numberZero=zero&numberOne=one&numberTwo=two";

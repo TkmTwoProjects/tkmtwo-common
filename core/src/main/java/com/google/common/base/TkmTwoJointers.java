@@ -54,5 +54,28 @@ public final class TkmTwoJointers {
     .on(',')
     .omitEmptyStrings()
     .trimResults();
-
+  
+  
+  public static final Joiner COLON_JOINER =
+    Joiner
+    .on(':')
+    .skipNulls();
+  
+  public static final Splitter COLON_SPLITTER =
+    Splitter
+    .on(':')
+    .omitEmptyStrings()
+    .trimResults();
+  
+  public static final Joiner SEMICOLON_JOINER =
+    Joiner
+    .on(';')
+    .skipNulls();
+  
+  public static final Splitter SEMICOLON_SPLITTER =
+    Splitter
+    .on(';')
+    .omitEmptyStrings()
+    .trimResults();
+  
 }
