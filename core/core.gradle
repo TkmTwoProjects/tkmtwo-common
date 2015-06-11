@@ -4,17 +4,23 @@ apply plugin: 'maven'
 apply plugin: 'checkstyle'
 apply plugin: 'findbugs'
 
-
+configurations {
+  doc { 
+    transitive false
+  }
+}
 dependencies {
   compile "com.google.guava:guava:${depVersionGuava}"
+  doc "com.google.code.findbugs:jsr305:3.0.0";
+  
   testCompile "junit:junit:${depVersionJunit}"
 }
 
 uploadArchives {
   repositories {
     mavenDeployer {
-      //repository(url: "file://$buildDir/repo")
-      repository(url: "file://$rootDir/../tkmtwo-mvn-repo/release")
+      repository(url: "file://$buildDir/repo")
+      //repository(url: "file://$rootDir/../tkmtwo-mvn-repo/release")
     }
   }
 }
@@ -30,6 +36,7 @@ jar {
   //appendix = project.name
 }
 
+
 javadoc {
   options.author = true
   //options.header = rootProject.name + '-' + project.name
@@ -37,6 +44,7 @@ javadoc {
   options.links(project.ext.javadocLinks)
   //title = rootProject.name + '-' + project.name
   title = rootProject.name
+  classpath += configurations.doc
 }
 
 

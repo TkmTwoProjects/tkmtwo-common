@@ -102,6 +102,34 @@ public class TkmTwoJointersTest {
   
   
   @Test
+  public void testDot() {
+    String s = "zero.one.two";
+    
+    List<String> l = TkmTwoJointers.DOT_SPLITTER.splitToList(s);
+    assertEquals(3, l.size());
+    assertEquals("zero", l.get(0));
+    assertEquals("one", l.get(1));
+    assertEquals("two", l.get(2));
+    assertEquals(s, TkmTwoJointers.DOT_JOINER.join(l));
+  }
+  
+  @Test
+  public void testDotSpaces() {
+    String s = ". zero ....one . . ..two. . .";
+    
+    List<String> l = TkmTwoJointers.DOT_SPLITTER.splitToList(s);
+    assertEquals(3, l.size());
+    assertEquals("zero", l.get(0));
+    assertEquals("one", l.get(1));
+    assertEquals("two", l.get(2));
+    assertEquals("zero.one.two", TkmTwoJointers.DOT_JOINER.join(l));
+  }
+  
+  
+  
+  
+  
+  @Test
   public void testMap() {
     String s = "numberZero=zero&numberOne=one&numberTwo=two";
     

@@ -17,11 +17,6 @@
  */
 package com.google.common.base;
 
-import com.google.common.base.Joiner.MapJoiner;
-import com.google.common.base.Joiner;
-import com.google.common.base.Splitter.MapSplitter;
-import com.google.common.base.Splitter;
-
 
 /**
  *
@@ -30,12 +25,12 @@ import com.google.common.base.Splitter;
  */
 public final class TkmTwoJointers {
 
-  public static final MapJoiner MAP_JOINER =
+  public static final Joiner.MapJoiner MAP_JOINER =
     Joiner
     .on('&')
     .withKeyValueSeparator("=");
 
-  public static final MapSplitter MAP_SPLITTER =
+  public static final Splitter.MapSplitter MAP_SPLITTER =
     Splitter
     .on('&')
     .trimResults()
@@ -75,6 +70,17 @@ public final class TkmTwoJointers {
   public static final Splitter SEMICOLON_SPLITTER =
     Splitter
     .on(';')
+    .omitEmptyStrings()
+    .trimResults();
+  
+  public static final Joiner DOT_JOINER =
+    Joiner
+    .on('.')
+    .skipNulls();
+  
+  public static final Splitter DOT_SPLITTER =
+    Splitter
+    .on('.')
     .omitEmptyStrings()
     .trimResults();
   
