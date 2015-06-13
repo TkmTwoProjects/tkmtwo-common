@@ -23,7 +23,7 @@ package com.google.common.base;
  *
  *
  */
-public final class TkmTwoJointers {
+public class TkmTwoJointers {
 
   public static final Joiner.MapJoiner MAP_JOINER =
     Joiner

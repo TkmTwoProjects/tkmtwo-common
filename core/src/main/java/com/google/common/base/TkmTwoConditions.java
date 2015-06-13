@@ -26,9 +26,10 @@ import java.util.Collection;
  *
  *
  */
-public final class TkmTwoConditions {
+public class TkmTwoConditions {
+  
 
-
+  
   /**
    * Trims a string of whitespace, and ensures that it is not blank.
    *
@@ -36,15 +37,12 @@ public final class TkmTwoConditions {
    * @return the trimmed, non-blank string that was validated
    * @throws IllegalArgumentException if {@code s} is blank
    */
-  public static String checkNotBlank(String s) {
-    if (s != null) {
-      String ts = CharMatcher.WHITESPACE.trimFrom(s);
-      if (!ts.isEmpty()) { return ts; }
-    }
-
+  public static String checkNotBlank(final String s) {
+    String ts = TkmTwoStrings.blankToEmpty(s);
+    if (!ts.isEmpty()) { return ts; }
     throw new IllegalArgumentException("String value may not be blank.");
   }
-
+  
   /**
    * Trims a string of whitespace, and ensures that it is not blank.
    *
@@ -55,12 +53,9 @@ public final class TkmTwoConditions {
    * @return the trimmed, non-blank string that was validated
    * @throws IllegalArgumentException if {@code s} is blank
    */
-  public static String checkNotBlank(String s, Object msg) {
-    if (s != null) {
-      String ts = CharMatcher.WHITESPACE.trimFrom(s);
-      if (!ts.isEmpty()) { return ts; }
-    }
-    
+  public static String checkNotBlank(final String s, final Object msg) {
+    String ts = TkmTwoStrings.blankToEmpty(s);
+    if (!ts.isEmpty()) { return ts; }
     throw new IllegalArgumentException(String.valueOf(msg));
   }
 
@@ -79,12 +74,9 @@ public final class TkmTwoConditions {
    * @return the trimmed, non-blank string that was validated
    * @throws IllegalArgumentException if {@code s} is blank
    */
-  public static String checkNotBlank(String s, String msgTemplate, Object... msgArgs) {
-    if (s != null) {
-      String ts = CharMatcher.WHITESPACE.trimFrom(s);
-      if (!ts.isEmpty()) { return ts; }
-    }
-    
+  public static String checkNotBlank(final String s, final String msgTemplate, final Object... msgArgs) {
+    String ts = TkmTwoStrings.blankToEmpty(s);
+    if (!ts.isEmpty()) { return ts; }
     throw new IllegalArgumentException(Preconditions.format(msgTemplate, msgArgs));
   }
   

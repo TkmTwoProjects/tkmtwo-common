@@ -24,7 +24,7 @@ package com.google.common.base;
  *
  *
  */
-public final class TkmTwoStrings {
+public class TkmTwoStrings {
   
   
   /**
