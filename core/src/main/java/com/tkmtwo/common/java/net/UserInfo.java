@@ -29,6 +29,7 @@ import java.util.List;
 /**
  * Small, immutable class to represent the "user-info" portion of a URI.
  *
+ * @Deprecated
  *
  */
 public final class UserInfo

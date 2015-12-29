@@ -23,6 +23,7 @@ import java.util.BitSet;
 /**
  * Handy <code>PercentCodec</code>s for URI parts.
  *
+ * @Deprecated
  */
 public final class UriCodecs {
   

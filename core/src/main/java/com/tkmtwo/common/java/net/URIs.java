@@ -23,6 +23,7 @@ import java.net.URISyntaxException;
 
 /**
  *
+ * @Deprecated
  */
 public class URIs {
 

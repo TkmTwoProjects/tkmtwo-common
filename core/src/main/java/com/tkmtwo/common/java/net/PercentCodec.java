@@ -24,6 +24,7 @@ import java.util.BitSet;
 
 /**
  *
+ * @Deprecated
  */
 public class PercentCodec {
 
